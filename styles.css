@@ -1,0 +1,20 @@
+/* Verberg de "For You" tab met specifieke Instagram selectors */
+[role="tablist"] > div:first-child,
+[role="tablist"] > div:first-of-type,
+[role="button"][aria-label="For you"],
+div[aria-label="For you"],
+a[role="tab"]:has(span:contains("For you")),
+div.x7a106z > div:first-child {
+  display: none !important;
+}
+
+/* Verberg de "For you" tekst overal */
+span[dir="auto"]:contains("For you") {
+  display: none !important;
+}
+
+/* Maak de "Following" tab breder en centreer deze */
+[role="tablist"] > div:last-child {
+  margin: 0 auto !important;
+  width: 100% !important;
+} 

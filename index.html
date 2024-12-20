@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Following Feed</title>
+    <link rel="manifest" href="pwa-manifest.json">
+    <link rel="stylesheet" href="pwa-styles.css">
+    <meta name="theme-color" content="#e1306c">
+    <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Instagram Following Feed</h1>
+            <div id="status-bar">
+                <span id="connection-status">📱 App geladen</span>
+                <button id="install-button" style="display: none;">Installeer App</button>
+            </div>
+        </header>
+        
+        <main>
+            <div id="feed-container">
+                <iframe id="instagram-frame" src="https://www.instagram.com/?variant=following" style="display: none;"></iframe>
+                <div id="loading">Laden...</div>
+            </div>
+        </main>
+
+        <footer>
+            <nav>
+                <button id="refresh-button">🔄 Vernieuwen</button>
+                <button id="settings-button">⚙️ Instellingen</button>
+            </nav>
+        </footer>
+    </div>
+
+    <script src="pwa-app.js"></script>
+    <script>
+        // Service Worker registreren
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(registration => console.log('ServiceWorker geregistreerd'))
+                .catch(error => console.log('ServiceWorker fout:', error));
+        }
+    </script>
+</body>
+</html> 
